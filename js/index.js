@@ -1,13 +1,21 @@
-var demo = new Vue({
-  el : "#demo",
+var markdown = function (input){
+  return "<a href='http://www.tmall.com'>TMALL</a>";
+}
+
+var header = new Vue({
+  el : "#header",
+  replace : false,
+  template : 'Markdown Edit'
+})
+
+var textarea = new Vue({
+  el : "#editor",
   data : {
-    title : 'todos',
-    todos : [{
-      done : true,
-      content : 'Learn JavaScript'
-    },{
-      done : false,
-      content : 'Learn Vue.js'
-    }]
+    input : "# Welcome to here"
+  },
+  filters : {
+    marked : function (input){
+      return markdown(input);
+    }
   }
 })

@@ -4,19 +4,14 @@
   <meta charset="UTF-8">
   <title>Vue</title>
   <script type="text/javascript" src="./js/vue.js"></script>
+  <link rel="stylesheet" type="text/css" href="./css/index.css">
 </head>
 <body>
-  <div id="demo">
-    <h1>{{title | uppercase}}</h1>
-    <ul>
-      <li
-          v-repeat="todos"
-          v-on="click: done = !done"
-          class="{{done ? 'done' : ''}}">
-        {{content}}
-      </li>
-    </ul>
-  </div>
+<div id="header"></div>
+<div id="editor">
+  <textarea id="input" v-model="input" debounce="300"></textarea>
+  <div id="output" v-html="input | marked"></div>
+</div>
 <script type="text/javascript" src="./js/index.js"></script>
 </body>
 </html>
